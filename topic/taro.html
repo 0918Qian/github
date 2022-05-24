@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>塔羅牌運勢</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/taro.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="profile" href="https://gmpg.org/xfn/11" />
+	    <link rel="pingback" href="https://gomedia.asia/xmlrpc.php" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="https://gomedia.asia/freefive/jquery-ui-1.7.1.custom.css" type="text/css">
+		<link rel="stylesheet" href="https://gomedia.asia/freefive/style.css" type="text/css">
+		<script src="https://gomedia.asia/freefive/freefivedrawcards.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" type="text/javascript"></script>
+
+	</head>
+	<body class="is-preload">
+		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+	<!-- Header -->
+		<header id="header">
+			<h1><a href="index.html">回首頁</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+								<div id="menu">
+									<ul>
+										<li><a href="index.html">主頁</a></li>
+										<li><a href="taro.html">塔羅牌運勢</a></li>
+										<li><a href="sign.php">星座運勢</a></li>
+										<li><a href="astrology.html">占星骰子</a></li>
+										<li><a href="login.html">登入</a></li>
+										<li><a href="signup.html">註冊</a></li>
+									</ul>
+								</div>
+						</li>
+					</ul>
+				</nav>
+		</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>塔羅牌運勢</h2>
+							<p>歡迎進入此網頁<br />
+							在抽取塔羅牌前<br />
+							建議您先冥想<br />
+							然後心中專心默想您的問題三次<br />
+							如果想有更準確的占卜結果，歡迎大家到下方的資訊欄聯繫小編<br />
+						</p>
+						</header>
+					</article>
+
+		<section class="wrapper style5">
+			<div class="inner">
+				<div>
+					<h2>(1)請先想好所要占卜的問題後，在下方選擇你想問的問題類別與子項目。
+						<form name="myForm">問題類別：
+						<select name="category" onchange="question_renew(this.selectedIndex);">
+						<option disabled="disabled" selected="selected">選擇問題類別</option>
+						<option>運勢</option>
+						<option>感情</option>
+						<option>事業</option>
+						<option>人際關係</option>
+						<option>財運</option>
+						<option>單一事件</option>
+						</select>
+						問題子項目：
+						<select name="member">
+						<option disabled="disabled" selected="selected" value="0">請先選取問題類別</option>
+						</select></form>
+						</div>
+						<script>
+						CharacterVoice=new Array();
+						CharacterVoice[1]=["本周運勢", "流年運勢", "守護天使想跟你說什麼", "寵物運勢", "夢境占卜"];
+						CharacterVoice[2]=["多久會遇到好的對象", "特定人跟我適合交往嗎?", "跟這個人的未來發展", "我跟他有機會在一起嗎?", "我跟他會復合嗎？", "他愛我嗎？", "我今年會脫單嗎？", "我真的愛他嗎？", "我的真命天子出現了嗎？", "他們會在一起嗎？", "他另外有喜歡的人了嗎？", "明天我應該要告白嗎？", "他對我有好感嗎？", "未來一年我會結婚嗎？", "他值得我等待嗎？", "聖誕節我會和他一起度過嗎？", "他會對我有所行動嗎？", "他的心中是否還有留戀的對象？", "我和他會再相遇嗎？", "我最近會有桃花運嗎？", "我還要等他/她多久?", "他/她想念我嗎？", "我該主動追求他/她嗎？", "他/她現在對於我跟他/她的感情怎麼想？", "現在有人喜歡我嗎？", "他/她把我當對象還是朋友？", "他/她除了我還有其他的曖昧對象嗎？"];
+						CharacterVoice[3]=["多久會找到好的工作", "這個工作的未來發展", "轉換跑道另找工作好嗎?", "這次面試結果好嗎？", "現在的我適合創業嗎？", "我選對職業了嗎？"];
+						CharacterVoice[4]=["跟特定人的人際關係建議", "他現在好嗎?", "閨蜜指數有多少?", "主管(老師)對我的想法", "跟這個人的相處關係會變好嗎？"];
+						CharacterVoice[5]=["近期財運建議", "目前的工作賺得到錢嗎?", "這個投資會賺錢嗎？", "最近我會中獎嗎?", "未來選擇這個工作會讓我賺到錢嗎？"];
+						CharacterVoice[6]=["選擇ＯＯＸＸ好嗎?或者ＯＯＸＸ會順利成功嗎(自行帶入事件)", "考試結果好嗎?", "A or B?"];
+						function question_renew(index){
+							for(var i=0;i<CharacterVoice[index].length;i++)
+							//新增select的選項
+							document.myForm.member.options[i]=new Option(CharacterVoice[index][i],CharacterVoice[index][i]);
+							document.myForm.member.length=CharacterVoice[index].length;
+							document.getElementById("member").selectedIndex = "1";
+						}
+						</script>
+					</h2>
+						<p></p>
+						<div>
+							<h2>(2)選好所要占卜的問題後，請默念你的名字和你想問的問題後，按下「洗牌」。</h2>
+							<p>
+								<input id="shuffle" style="width:200px;height:60px;border:3px gray double;background-color:#CED8F6;" type="button" value="洗牌" />
+							</p>
+							<h2>(3)從下方洗好的牌中隨意點選五張牌。五張抽牌完畢後，翻牌按鈕即會出現。</h2>
+							<div id="deck"></div>
+
+							<div id="spreadxx" style="height: 360px;">
+								<h2>(4)請再按下「翻牌」。本占卜只使用正牌來占卜，逆牌將使用於特殊情況。</h2>
+								<p>
+									<input id="turnCards" style="width:170px;height:50px;border:3px gray double;background-color:#CED8F6;" type="button" value="翻牌" /><br />
+									<input id="redrawCards" class="ui-state-default" type="hidden" value="重新抽牌" />
+								</p>
+							<div>
+								<input id="addCard" class="ui-state-default" type="hidden" value="加牌" />
+									<br />
+								<input id="resetSpreadArea" class="ui-state-default" type="hidden" value="刪除牌陣" /></p>
+								<p></p>
+								<div id="spreadArea">
+									<div id="cardPosition0" class="droppable ui-widget-header ui-draggable ui-droppable" title="" style="display: block; position: absolute; left: 5%; top: 1160px;">
+										<div style="height: 76.95px;"></div>
+									<span>位置1</span>
+								</div>
+								<div id="cardPosition1" class="droppable ui-widget-header ui-draggable ui-droppable" title="" style="display: block; position: absolute; left:20%; top: 1160px;">
+									<div style="height: 76.95px;"></div>
+									<span>位置2</span>
+								</div>
+								<div id="cardPosition2" class="droppable ui-widget-header ui-draggable ui-droppable" title="" style="display: block; position: absolute; left: 35%; top: 1160px;">
+									<div style="height: 76.95px;"></div>
+									<span>位置3</span>
+								</div>
+								<div id="cardPosition3" class="droppable ui-widget-header ui-draggable ui-droppable" title="" style="display: block; position: absolute; left: 50%; top: 1160px;">
+									<div style="height: 76.95px;"></div>
+									<span>位置4</span>
+								</div>
+								<div id="cardPosition4" class="droppable ui-widget-header ui-draggable ui-droppable" title="" style="display: block; position: absolute; left: 65%; top: 1160px;">
+									<div style="height: 76.95px;"></div>
+									<span>位置5</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+						<h2>(5)想看解牌，請按下「解牌」。</h2>
+				</div>
+						<p><input id="explain" style="width:200px;height:60px;border:3px rgb(182, 182, 182) double;background-color:#CED8F6;" type="button" value="解牌" /></p>
+							<hr style="border:3px dashed rgb(194, 194, 194)" size="1" width="100%">
+						</p>
+						<div>
+							<h2>還想算其它項目請按下「重新抽牌」。</h2>
+							<p><input class="ui-state-default" type="button" value="重新抽牌" onClick="window.location.reload()" /></p>
+							<div id="dialogTurnCardsResult" title="抽牌結果"></div>
+							<div id="dialogRedrawCards" title="確定重新抽牌？"></div>
+							<div id="dialogResetSpreadArea" title="確定刪除牌陣？"></div>
+						</div>
+			</div>
+					
+			<hr class="simple" color="#6f5499" />
+                        <section>
+							<form method="post" action="mail1.php">
+								<div class="fields">
+									<div class="field">
+										<label for="name">姓名</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">留言</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="送出" /></li>
+								</ul>
+							</form>
+						</section>
+		</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; STUST.CSIE</li><li>Design BY: Ren Chien Liao</li>
+						</ul>
+					</footer>
+	</div>
+			<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/jquery.scrolly.min.js"></script>
+				<script src="assets/js/browser.min.js"></script>
+				<script src="assets/js/breakpoints.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+		
+	</body>
+</html>
